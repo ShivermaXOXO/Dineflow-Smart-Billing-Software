@@ -1,0 +1,138 @@
+/* Thermal Printer Receipt Styles */
+.thermal-receipt {
+  width: 80mm; /* Standard thermal paper width */
+  max-width: 80mm;
+  padding: 5px;
+  font-family: 'Courier New', monospace;
+  font-size: 12px;
+  line-height: 1.2;
+  color: #000;
+}
+
+.receipt-header {
+  text-align: center;
+  margin-bottom: 5px;
+}
+
+.business-name {
+  font-size: 16px;
+  font-weight: bold;
+  margin: 5px 0;
+  text-transform: uppercase;
+}
+
+.business-address,
+.business-phone,
+.business-gst {
+  margin: 3px 0;
+  font-size: 10px;
+}
+
+.order-info {
+  text-align: center;
+  margin: 5px 0;
+}
+
+.receipt-divider {
+  text-align: center;
+  margin: 3px 0;
+  font-weight: bold;
+}
+
+.receipt-date,
+.receipt-number,
+.customer-name,
+.customer-phone,
+.payment-method {
+  margin: 2px 0;
+  text-align: left;
+}
+
+.items-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 5px 0;
+}
+
+.items-table th {
+  text-align: left;
+  padding: 2px 0;
+  border-bottom: 1px dashed #000;
+}
+
+.items-table td {
+  padding: 3px 0;
+}
+
+.item-name {
+  width: 50%;
+  text-align: left;
+}
+
+.item-qty {
+  width: 15%;
+  text-align: center;
+}
+
+.item-price {
+  width: 20%;
+  text-align: right;
+}
+
+.item-total {
+  width: 15%;
+  text-align: right;
+}
+
+.totals {
+  margin: 5px 0;
+}
+
+.total-row {
+  display: flex;
+  justify-content: space-between;
+  margin: 3px 0;
+}
+
+.grand-total {
+  font-weight: bold;
+  font-size: 14px;
+  margin-top: 5px;
+}
+
+.receipt-footer {
+  text-align: center;
+  margin-top: 10px;
+  font-size: 10px;
+}
+
+.receipt-footer p {
+  margin: 3px 0;
+}
+
+.terms {
+  font-size: 8px;
+  text-align: left;
+  margin-top: 10px;
+}
+
+/* Print-specific styles */
+@media print {
+  body * {
+    visibility: hidden;
+  }
+  .thermal-receipt, .thermal-receipt * {
+    visibility: visible;
+  }
+  .thermal-receipt {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 80mm;
+    margin: 0;
+    padding: 2mm;
+  }
+  .items-table {
+    page-break-inside: avoid;
+  }
+}
