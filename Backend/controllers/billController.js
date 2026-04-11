@@ -4,7 +4,7 @@ const Staff = require('../models/Staff');
 const Product = require('../models/Product');
 const { identifyRepeatCustomers } = require('./repeatCustomerController');
 const XLSX = require('xlsx');
-const { sendWhatsAppBill } = require('../utils/whatsappService');
+// const { sendWhatsAppBill } = require('../utils/whatsappService');
 //  Create Bill
 
 // ✅ CORRECTED createBill function in billController.js
@@ -111,9 +111,9 @@ const createBill = async (req, res) => {
     });
 
    
-    if (phoneNumber) {
-      sendWhatsAppBill(phoneNumber, customername, finalTotal, items);
-    }
+    // if (phoneNumber) {
+    //   sendWhatsAppBill(phoneNumber, customername, finalTotal, items);
+    // }
     res.status(201).json({ 
       message: "Bill Created Successfully", 
       bill: bill,
