@@ -40,7 +40,7 @@ const Hotel = sequelize.define(
         },
     },
     {
-    tableName: 'hotels',
+        tableName: 'Hotels',
         freezeTableName: true,
     timestamps: false,
     }
