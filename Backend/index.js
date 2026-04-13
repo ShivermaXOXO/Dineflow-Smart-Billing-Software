@@ -48,15 +48,25 @@ app.use(express.json());
 
 
 // CORS configuration with environment variables
-const corsOrigins = process.env.CORS_ORIGINS ? 
-  process.env.CORS_ORIGINS.split(',') : 
-  ['http://localhost:5173', 'http://127.0.0.1:5173', 'http://localhost:5174', 'http://127.0.0.1:5174'];
+const allowedOrigins = [
+    "http://localhost:5173",
+    "http://127.0.0.1:5173",
+    "https://dineflow-smart-billing-software.vercel.app"
+];
 
 app.use(cors({
-    origin: corsOrigins,
+    origin: function (origin, callback) {
+        if (!origin) return callback(null, true);
+
+        if (allowedOrigins.includes(origin)) {
+            return callback(null, true);
+        } else {
+            return callback(new Error("CORS not allowed"));
+        }
+    },
     credentials: true,
-    methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS'],
-    allowedHeaders: ['Content-Type', 'Authorization']
+    methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
+    allowedHeaders: ["Content-Type", "Authorization"]
 }));
 
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
