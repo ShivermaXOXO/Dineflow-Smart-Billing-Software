@@ -1,12 +1,14 @@
 // socket.js
 const { Server } = require('socket.io');
-const socketIO = require('socket.io');
 
 function initSocket(server) {
   const io = new Server(server, {
     cors: {
-      origin: '*',
+      origin: ["http://localhost:5173",
+        "https://dineflow-smart-billing-software.vercel.app"],
+
       methods: ["GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS"],
+      credentials: true
     },
   });
 
