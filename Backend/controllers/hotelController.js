@@ -90,15 +90,21 @@ const setTableNumber = async (req, res) => {
 
 const checkHotel = async (req, res) => {
   try {
-    const id = Number(req.params.id);
+    const id = req.params.id;
 
-    console.log("Checking Hotel ID:", id);
-
-    const hotel = await Hotel.findOne({
-      where: { id }
+    const allHotels = await Hotel.findAll({
+      raw: true
     });
 
-    console.log("Hotel Found:", hotel);
+    console.log("ALL HOTELS:", allHotels);
+
+    const hotel = await Hotel.findOne({
+      where: { id },
+      raw: true
+    });
+
+    console.log("SEARCH ID:", id);
+    console.log("FOUND:", hotel);
 
     if (!hotel) {
       return res.json({
@@ -109,13 +115,11 @@ const checkHotel = async (req, res) => {
 
     return res.json({
       exists: true,
-      status: hotel.status,
-      name: hotel.name,
-      tablenumber: hotel.tablenumber
+      hotel
     });
 
   } catch (error) {
-    console.error("checkHotel error:", error);
+    console.error(error);
     res.status(500).json({ message: "Server error" });
   }
 };
