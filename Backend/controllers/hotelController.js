@@ -92,7 +92,13 @@ const checkHotel = async (req, res) => {
   try {
     const id = Number(req.params.id);
 
-    const hotel = await Hotel.findByPk(id);
+    console.log("Checking Hotel ID:", id);
+
+    const hotel = await Hotel.findOne({
+      where: { id }
+    });
+
+    console.log("Hotel Found:", hotel);
 
     if (!hotel) {
       return res.json({
