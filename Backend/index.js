@@ -9,10 +9,7 @@ const initSocket = require('./config/socket.js');
 const host = process.env.HOST || '0.0.0.0';
 
 //require('dotenv').config();
-const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => {
-    console.log(`Server is running on port ${PORT}`);
-});
+const port = process.env.PORT || 5000;
 
 app.get('/', (req, res) => {
     res.send('DineFlow Backend Running');
