@@ -22,7 +22,7 @@ const Staff = sequelize.define('Staff', {
   hotelId: {
     type: DataTypes.INTEGER,
     allowNull: false,
-    field: 'hotelId',
+    field: 'hotelid',
     references: {
       model: 'hotels',   // ✅ lowercase
       key: 'id'
