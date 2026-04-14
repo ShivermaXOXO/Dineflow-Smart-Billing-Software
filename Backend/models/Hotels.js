@@ -1,49 +1,24 @@
 const { DataTypes } = require('sequelize');
 const sequelize = require('../config/db');
 
-const Hotel = sequelize.define(
-    'Hotel',
-    {
+const Hotel = sequelize.define('Hotel', {
     id: {
-            type: DataTypes.BIGINT,
-            primaryKey: true,
+        type: DataTypes.BIGINT,
+        primaryKey: true,
+        allowNull: false
     },
-
-    name: {
-        type: DataTypes.STRING,
-    },
-
-        status: {
-            type: DataTypes.STRING,
-        },
-
-        // 🔥 Important field for tables
-        tablenumber: {
-            type: DataTypes.INTEGER,
-            field: 'tablenumber',
-        },
-
-    address: {
-        type: DataTypes.TEXT,
-    },
-
-    profileimage: {
-        type: DataTypes.TEXT,
-    },
-
-    email: {
-        type: DataTypes.TEXT,
-    },
-
-    password: {
-        type: DataTypes.TEXT,
-        },
-    },
-    {
-        tableName: 'Hotels',
-        freezeTableName: true,
-    timestamps: false,
-    }
-);
+    name: DataTypes.STRING,
+    status: DataTypes.STRING,
+    tablenumber: DataTypes.INTEGER,
+    address: DataTypes.TEXT,
+    profileimage: DataTypes.TEXT,
+    email: DataTypes.TEXT,
+    password: DataTypes.TEXT
+}, {
+    tableName: 'hotels',
+    schema: 'public',
+    freezeTableName: true,
+    timestamps: false
+});
 
 module.exports = Hotel;

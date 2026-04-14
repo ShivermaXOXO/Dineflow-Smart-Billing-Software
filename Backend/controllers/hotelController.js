@@ -7,7 +7,8 @@ require('dotenv').config({ path: path.resolve(__dirname, '../../.env') });
 // Get all hotels
 const getHotel = async (req, res) => {
   try {
-    const hotels = await Hotel.findAll();
+    const hotels = await Hotel.findAll({ raw: true });
+    console.log(hotels);
     res.status(200).json(hotels);
   } catch (err) {
     res.status(500).json({ error: 'Failed to fetch hotels' });
