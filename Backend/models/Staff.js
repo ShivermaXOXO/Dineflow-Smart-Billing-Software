@@ -29,7 +29,7 @@ const Staff = sequelize.define('Staff', {
     }
   }
 }, {
-  tableName: 'Staffs',
+  tableName: 'Staff',
   freezeTableName: true,
   timestamps: true,
 });

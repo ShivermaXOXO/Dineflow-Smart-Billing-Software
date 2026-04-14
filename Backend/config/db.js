@@ -24,4 +24,7 @@ sequelize.authenticate()
   .then(() => console.log('✅ PostgreSQL Connected'))
   .catch(err => console.error('❌ DB Error:', err));
 
+sequelize.query('select * from public.hotels', { raw: true })
+  .then(([rows]) => console.log("RAW HOTELS:", rows))
+  .catch(err => console.error("RAW SQL ERROR:", err));
 module.exports = sequelize;
