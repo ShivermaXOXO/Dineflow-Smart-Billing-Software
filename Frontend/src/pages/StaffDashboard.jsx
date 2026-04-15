@@ -813,10 +813,10 @@ const StaffDashboard = () => {
     const fetchTableNumber = async () => {
       try {
         const res = await axios.get(
-          `${import.meta.env.VITE_BACKEND_URL}/api/hotels/${auth.hotelId}/check`
+          `${import.meta.env.VITE_BACKEND_URL}/api/hotels/${auth.hotelId}`
         );
         console.log("🏨 HOTEL API RESPONSE:", res.data);
-        setTotalTableNumber(res.data.tablenumber || 0);
+        setTotalTableNumber(res.data.tablenumber);
         console.log("Fetched table number:", res.data.tablenumber);
       } catch (err) {
         console.error("Error fetching table number:", err);
