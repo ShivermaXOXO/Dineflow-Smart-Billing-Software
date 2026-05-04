@@ -1,6 +1,6 @@
 // Complete AdminBilling component with all staff billing features
 import React, { useEffect, useState } from 'react';
-import axios from 'axios';
+import axios from '../api/axiosConfig';
 import { useAuth } from '../../context/authContext';
 import socket from '../../services/socket';
 import ProductList from '../staff/ProductList';

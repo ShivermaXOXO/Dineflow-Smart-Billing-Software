@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import axios from 'axios';
+import axios from '../api/axiosConfig';
 import MenuItemCard from './MenuCard';
 import socket from '../../services/socket';
 import { useSearchParams } from 'react-router-dom';

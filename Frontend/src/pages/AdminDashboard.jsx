@@ -1,7 +1,7 @@
 // src/pages/AdminDashboard.jsx
 import React, { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import axios from 'axios';
+import axios from '../api/axiosConfig';
 import { useAuth } from '../context/authContext';
 import socket from '../services/socket';
 import AddStaffForm from '../components/admin/AddStaffForm';

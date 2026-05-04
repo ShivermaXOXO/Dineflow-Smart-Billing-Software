@@ -1,4 +1,4 @@
-import axios from 'axios'
+import axios from '../api/axiosConfig';
 
 // Fetch all hotels (for super admin)
 export const fetchAllHotels = async() => {

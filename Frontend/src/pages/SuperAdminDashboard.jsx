@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import axios from 'axios';
+import axios from '../../src/api/axiosConfig';
 import HotelList from '../components/superAdmin/HotelList';
 import SummaryGraphs from '../components/superAdmin/SummaryGraphs';
 import SummaryDashboard from '../components/analytics/SummaryDashboard';

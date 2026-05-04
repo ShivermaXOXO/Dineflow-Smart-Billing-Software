@@ -99,6 +99,9 @@ app.use('/api/print', printRoutes);
 app.use('/api/upload', uploadRoutes);
 app.use('/api/qrorders', qrOrders);
 
+const superAdminRoutes = require('./routes/superAdminRoutes');
+app.use('/api/superadmin', superAdminRoutes);
+
 // Test DB connection, sync models, and start server
 async function startServer() {
     try {

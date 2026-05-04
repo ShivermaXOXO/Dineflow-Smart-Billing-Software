@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import axios from 'axios';
+import axios from '../../api/axiosConfig';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCalendarAlt, faChartLine, faShoppingCart, faUsers, faMoneyBillWave, faTrophy, faUserTie, faToggleOff, faToggleOn, faExchangeAlt } from '@fortawesome/free-solid-svg-icons';
 import SummaryDashboard from '../analytics/SummaryDashboard';

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import axios from 'axios';
+import axios from '../../api/axiosConfig';
 
 const HotelStaffList = ({ hotelId }) => {
   const [staff, setStaff] = useState([]);

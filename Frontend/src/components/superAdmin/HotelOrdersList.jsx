@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import axios from 'axios';
+import axios from '../../api/axiosConfig';
 import * as XLSX from 'xlsx';
 import printerService from '../../services/printerService';
 import { toast } from "react-toastify";

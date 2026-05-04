@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import axios from 'axios';
+import axios from '../../api/axiosConfig';
 import { useParams } from 'react-router-dom';
 
 const AddProductForm = () => {

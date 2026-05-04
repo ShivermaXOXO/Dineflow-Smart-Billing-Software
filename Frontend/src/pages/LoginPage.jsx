@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import axios from '../api/axiosConfig';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { useAuth } from '../context/authContext';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -66,6 +66,24 @@ console.log("Selected Role:", role);
       }
     } finally {
       setIsLoading(false);
+    }
+  };
+
+  const handleSuperAdminLogin = async () => {
+    try {
+      const res = await axios.post(
+        `${import.meta.env.VITE_BACKEND_URL}/api/superadmin/login`,
+        { email, password }
+      );
+
+      login({
+        token: res.data.token,
+        role: res.data.role,
+      });
+
+      navigate('/superadmin');
+    } catch (err) {
+      alert("Invalid super admin credentials");
     }
   };
 

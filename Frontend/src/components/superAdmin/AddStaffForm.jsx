@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import axios from 'axios';
+import axios from '../../api/axiosConfig';
 
 const AddStaffForm = ({ hotelId, onStaffAdded }) => {
   const [form, setForm] = useState({

@@ -1,16 +1,17 @@
 const express = require('express');
 const router = express.Router();
+const verifySuperAdmin = require('../middlewares/authMiddleware');
 const {getHotel, setTableNumber, getActiveHotels, addHotel, deleteHotel, getHotelById, checkHotel, updateHotel, toggleHotelStatus} = require('../controllers/hotelController')
 // set / update table number
 router.put('/set-table', setTableNumber);
 
-router.get('/',getHotel);
-router.get('/active', getActiveHotels);
-router.post('/',addHotel);
+router.get('/', verifySuperAdmin, getHotel);
+router.get('/active', verifySuperAdmin, getActiveHotels);
+router.post('/', verifySuperAdmin, addHotel);
 router.get('/:id', getHotelById);
-router.get('/:id/check', checkHotel);
-router.put('/:hotelId/toggle-status', toggleHotelStatus); // More specific route first
-router.put('/:hotelId', updateHotel); // General update route second
-router.delete('/:hotelId', deleteHotel);
+router.get('/:id/check', verifySuperAdmin, checkHotel);
+router.put('/:hotelId/toggle-status', verifySuperAdmin, toggleHotelStatus); // More specific route first
+router.put('/:hotelId', verifySuperAdmin, updateHotel); // General update route second
+router.delete('/:hotelId', verifySuperAdmin, deleteHotel);
 
 module.exports = router;
